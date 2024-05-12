@@ -1,0 +1,10 @@
+@StudentMgmt_HostAddress = https://localhost:7241
+
+GET {{StudentMgmt_HostAddress}}/api/student
+Accept: application/json
+###
+
+GET {{StudentMgmt_HostAddress}}/api/student/76f77c8e-357e-45dc-c64d-08dc6da5c7e8
+Accept: application/json
+###
+

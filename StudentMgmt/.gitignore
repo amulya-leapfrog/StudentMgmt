@@ -1,0 +1,4 @@
+# Ignore NuGet packages
+bin/
+obj/
+*.dll

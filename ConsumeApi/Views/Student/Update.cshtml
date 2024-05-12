@@ -1,0 +1,65 @@
+﻿@model dynamic
+
+<h1>Edit Student</h1>
+<div class="col-md-4">
+
+
+    <form method="post" action="@Url.Action("Update", "Student")" class="form">
+        <input type="hidden" name="StudentId" value="@Model.Student.StudentId" />
+
+
+        <div class="form-group">
+            <label>First Name: </label>
+            <input type="text" name="firstName" value="@Model.Student.FirstName" />
+        </div>
+
+        <div class="form-group">
+            <label>Last Name: </label>
+            <input type="text" name="lastName" value="@Model.Student.LastName" />
+        </div>
+
+        <div class="form-group">
+            <label>Email: </label>
+            <input type="email" name="email" value="@Model.Student.Email" />
+        </div>
+
+        <div class="form-group">
+            <label>Mobile: </label>
+            <input type="text" name="mobile" value="@Model.Student.Mobile" />
+        </div>
+
+        <div class="form-group">
+            <label>Student Type: </label>
+            <div class="radioContainer">
+                <div>
+                    <input type="radio" id="old" name="studentType" value="0" @(Model.Student.StudentType == StudentMgmt.Enums.StudentType.Old ? "checked" : "")>
+                    <label for="old">Old</label><br>
+                </div>
+                <div>
+                    <input type="radio" id="new" name="studentType" value="1" @(Model.Student.StudentType == StudentMgmt.Enums.StudentType.New ? "checked" : "")>
+                    <label for="new">New</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Course: </label>
+            <select name="CourseId">
+                <option value="#">--Select Course--</option>
+                @foreach (var course in @Model.Course)
+                {
+                    <option value="@course.CourseId" selected="@(Model.Student.CourseId == course.CourseId ? "selected" : null)">@course.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group mt-2">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="mt-2">
+    <a asp-action="Index">Back To List</a>
+</div>
